@@ -11,7 +11,7 @@ import noresult from '../public/noresult.svg'
 
 import React from 'react'
 
-const search = ({ properties }) => {
+const Search = ({ properties }) => {
     const [searchFilters, setSearchFilters] = useState(false);
     const router = useRouter()
     return (
@@ -42,7 +42,7 @@ const search = ({ properties }) => {
             </Flex>
             {properties.length === 0 && (
                 <Flex justifyContent='center' alignItems='center' flexDir='column' marginTop='5' marginBottom='5'>
-                    <Image src={noresult} />
+                    <Image src={noresult} alt="" />
                     <Text fontSize='xl' marginTop='3'>No Result Found.</Text>
                 </Flex>
             )}
@@ -51,7 +51,7 @@ const search = ({ properties }) => {
     )
 }
 
-export default search;
+export default Search;
 
 export async function getServerSideProps({ query }) {
     const purpose = query.purpose || 'for-rent';
